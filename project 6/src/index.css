@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body {
+  overscroll-behavior: none;
+}
+
+body {
+  @apply bg-gradient-to-b from-purple-900 via-pink-800 to-purple-950;
+  @apply min-h-screen text-white font-sans;
+  @apply overflow-x-hidden;
+}
+
+/* Hide cursor when custom cursor is active */
+.custom-cursor-active {
+  cursor: none;
+}
+
+.custom-cursor-active * {
+  cursor: none;
+}
+
+/* Magic button styles */
+.magic-btn {
+  @apply relative overflow-hidden rounded-full bg-gradient-to-r from-purple-500 to-pink-500 text-white font-medium px-6 py-3 
+  transition-all duration-300 shadow-md hover:shadow-glow transform hover:scale-105;
+}
+
+.magic-btn::before {
+  content: '';
+  @apply absolute top-0 left-0 w-full h-full bg-gradient-to-r from-pink-400 to-purple-400 opacity-0 transition-opacity duration-300;
+  z-index: -1;
+}
+
+.magic-btn:hover::before {
+  @apply opacity-100;
+}
+
+/* Form input styling */
+.forest-input {
+  @apply w-full bg-purple-900/30 border-2 border-purple-400/50 rounded-lg px-4 py-3 text-white
+  focus:outline-none focus:ring-2 focus:ring-pink-400 focus:border-transparent
+  transition-all duration-300;
+  backdrop-filter: blur(4px);
+}
+
+/* Particle effect */
+.particle {
+  @apply absolute pointer-events-none rounded-full bg-white;
+  opacity: 0.6;
+  z-index: 10;
+}
+
+.forest-textarea {
+  @apply w-full h-40 md:h-60 bg-purple-900/30 border-2 border-purple-400/50 rounded-lg p-4 text-white
+  focus:outline-none focus:ring-2 focus:ring-pink-400 focus:border-transparent
+  transition-all duration-300 resize-none;
+  backdrop-filter: blur(4px);
+}
+
+/* Glass card styling */
+.glass-card {
+  @apply rounded-xl bg-white/10 backdrop-blur-lg border border-white/20 p-6 shadow-lg;
+}
+
+/* Floating animation for elements */
+.floating {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
